@@ -1,1 +1,4 @@
-Kelsey Jiang, 4th year, no previous computing exercise, and 1B
+Name: Kelsey Jiang
+Year: 4th
+Computing Experience: No previous computing exercise
+Section: 1B
