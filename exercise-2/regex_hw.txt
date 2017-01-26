@@ -6,7 +6,7 @@ As species of the same genus have usually, though by no means invariably, some s
 ANSWER:(\ss[a-z]*)
 
 2.  Write a regular expression that will find the last word of every sentence. Your regular expression should capture the whole last word - not just the first or last letter! (Hint: note that not all sentences end with a period- one ends in an `!`)   
-ANSWER:________________________________________________
+ANSWER: (\w*\S?\w*[\.|!])
 
 3.  Write a regular expression that will find the first word of every sentence. Your regular expression should match the whole first word- not just the first letter!    
 ANSWER:________________________________________________
