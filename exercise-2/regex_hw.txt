@@ -9,7 +9,7 @@ ANSWER:(\ss[a-z]*)
 ANSWER: (\w*\S?\w*[\.|!])
 
 3.  Write a regular expression that will find the first word of every sentence. Your regular expression should match the whole first word- not just the first letter!    
-ANSWER:________________________________________________
+ANSWER: ([A-Z]\w{1-2})
 
 4.  Write a regular expression that will match the **sentence** containing the phrase "Asiatic cockroach".  
 ANSWER:________________________________________________  
