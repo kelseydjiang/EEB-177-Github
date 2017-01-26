@@ -12,7 +12,7 @@ ANSWER: (\w*\S?\w*[\.|!])
 ANSWER: ([A-Z]\w{1,2}\s)
 
 4.  Write a regular expression that will match the **sentence** containing the phrase "Asiatic cockroach".  
-ANSWER:________________________________________________  
+ANSWER: In\sRussia\s.*congener. 
 
 Now consider the following comma-delimited rows of data (this is a small number of rows from some of Gaurav's research, with the actual species codes and seed counts changed...):  
 
