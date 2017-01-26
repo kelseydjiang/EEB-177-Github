@@ -44,5 +44,5 @@ Now consider the following comma-delimited rows of data (this is a small number 
 ANSWER: (.*NA)
 
 6.  Write a regular expression that will match all rows for where `plot_num` (column 1) is either 740, 741, or 742, and `replicate` (column 3) is either 1 or 4.  
-ANSWER:________________________________________________
+ANSWER: (740|741|742),.*(1|4),.*
 	
