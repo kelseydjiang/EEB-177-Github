@@ -1,0 +1,55 @@
+---
+title: "labwork-week-8"
+author: "Kelsey Jiang"
+output: html_document
+---
+
+```{r}
+cocoli_dat <- read.table("~/Desktop/eeb-177/class-assignments/21-February-Classwork/cocoli.txt", header = TRUE)
+cocoli_dat
+
+str(cocoli_dat)
+
+sizes_in_94 <- cocoli_dat$dbh1
+names(sizes_in_94) <- cocoli_dat$tag 
+sizes_in_94[1:10]
+sizes_in_94["000009"]
+sizes_in_94[c("000009", "000099")]
+
+sizes_in_97 <- cocoli_dat$dbh2
+
+rgr_1 <- (sizes_in_97-sizes_in_94)/sizes_in_94/3
+rgr_1
+
+cocoli_dat$rgr1 <- rgr_1
+cocoli_dat
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+# bar graph - make with barplot()
+# box plot - make with boxplot()
+# scatterplot - make with plot()
+
+#histogram - make with hist()
+
+hist(sizes_in_94, xlab = "DBH (mm)", main = "Distribution of Tree Sizes in Cocoli (1994)")
+?hist
+
+plot(x = sizes_in_94, y = sizes_in_97, main = "Scatterplot of Sizes", xlab = "Sizes in 1994 (mm)", ylab = "Sizes in 1997 (mm)", pch = 19, col = "darkblue", log = "xy")
+
+```
+
+```{r}
+library(dplyr)
+
+# %>% is identical to the | in the terminal
+cocoli_dat %>% filter(sizes_in_94 > 0) %>% arrange(-dbh1) %>% select(spcode)
+cocoli_dat %>% filter(sizes_in_94 > 0) %>% group_by(spcode) %>% summarize(sum_dbh_1994 = sum(dbh1)) %>% arrange(-sum_dbh_1994)
+
+```
