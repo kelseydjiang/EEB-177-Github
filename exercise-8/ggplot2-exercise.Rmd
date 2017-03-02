@@ -1,0 +1,52 @@
+---
+title: "exercise-8-workshop"
+author: "Kelsey Jiang"
+output: html_document
+---
+
+```{r}
+housing <- read.csv("~/Desktop/eeb-177/lab-work/exercise-8/Rgraphics/dataSets/landdata-states.csv")
+head(housing[1:5])
+
+hist(housing$Home.Value)
+
+library(ggplot2)
+ggplot(housing, aes(x = Home.Value)) + geom_histogram()
+```
+
+
+```{r}
+plot(Home.Value ~ Date, data = subset(housing, State == "MA"))
+points(Home.Value ~ Date, col = "red", data = subset(housing, State == "TX"))
+legend(1975, 400000, c("MA", "TX"), title = "State", col = c("black", "red"), pch = c(1,1))
+
+ggplot(subset(housing, State %in% c("MA", "TX")), aes(x=Date, y=Home.Value, color=State)) + geom_point()
+```
+
+```{r}
+help.search("geom_", package = "ggplot2")
+
+hp2001Q1 <- subset(housing, Date == 2001.25)
+ggplot(hp2001Q1, aes(y = Structure.Cost, x = Land.Value)) + geom_point()
+ggplot(hp2001Q1, aes(y = Structure.Cost, x = log(Land.Value))) + geom_point()
+
+hp2001Q1$pred.SC <- predict(lm(Structure.Cost ~ log(Land.Value), data = hp2001Q1))
+pl <- ggplot(hp2001Q1, aes(x = log(Land.Value), y = Structure.Cost))
+pl + geom_point(aes(color = Home.Value)) + geom_line(aes(y = pred.SC))
+p1 + geom_point(aes(color = Home.Value)) + geom_smooth()
+```
+
+```{r}
+
+
+```
+
+```{r}
+dat <- read.csv("~/Desktop/eeb-177/lab-work/exercise-8/Rgraphics/dataSets/EconomistData.csv")
+head(dat)
+
+ggplot(dat, aes(x = CPI, y = HDI, size = HDI.Rank, color = "darkblue")) + geom_point()
+
+
+
+```
